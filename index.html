@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Secure Drive Redirect</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #login-box {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    input[type="password"] {
+      padding: 0.5rem;
+      margin-top: 1rem;
+      width: 80%;
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background: #000080;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="login-box">
+    <h2>Enter Password to Access Drive</h2>
+    <input type="password" id="password" placeholder="Enter password" />
+    <br />
+    <button onclick="checkPassword()">Submit</button>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const password = document.getElementById("password").value;
+
+      const encodedURL = "aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2RyaXZlL2ZvbGRlcnMvMUFYa1k3MGlVSzVVZnBHdE56UDF6MEdQTkZqNWdwTHFYP3VzcD1zaGFyaW5n";
+
+      if (password === "chanda123") {
+        const url = atob(encodedURL);
+        window.location.href = url;
+      } else {
+        alert("Incorrect password");
+      }
+    }
+  </script>
+
+</body>
+</html>
